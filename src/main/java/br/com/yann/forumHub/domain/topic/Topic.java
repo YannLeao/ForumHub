@@ -70,4 +70,13 @@ public class Topic {
     public Course getCourse() {
         return course;
     }
+
+    public void setTitle(String title) {
+    }
+
+    public void setMessage(String message) {
+    }
+
+    public void setCourse(Course course) {
+    }
 }

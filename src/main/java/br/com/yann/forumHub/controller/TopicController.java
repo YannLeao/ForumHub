@@ -3,7 +3,7 @@ package br.com.yann.forumHub.controller;
 
 import br.com.yann.forumHub.domain.topic.DataRegisterTopic;
 import br.com.yann.forumHub.domain.topic.DataResponseTopic;
-import br.com.yann.forumHub.domain.topic.Topic;
+import br.com.yann.forumHub.domain.topic.DataUpdateTopic;
 import br.com.yann.forumHub.domain.topic.TopicRepository;
 import br.com.yann.forumHub.service.RegisterTopicService;
 import br.com.yann.forumHub.service.TopicService;
@@ -52,4 +52,10 @@ public class TopicController {
         return ResponseEntity.ok(new DataResponseTopic(topic));
     }
 
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity<DataResponseTopic> updateTopic(@PathVariable Long id, @RequestBody @Valid DataUpdateTopic data) {
+        var updatedTopic = topicService.updateTopic(id, data);
+        return ResponseEntity.ok(updatedTopic);
+    }
 }
