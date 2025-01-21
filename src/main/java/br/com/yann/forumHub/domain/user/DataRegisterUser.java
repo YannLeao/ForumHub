@@ -10,6 +10,9 @@ public record DataRegisterUser(
 
         @NotBlank(message = "Campo de email do usuário incorreto")
         @Email
-        String email
+        String email,
+
+        @NotBlank(message = "Campo da senha do usuário obrigatório")
+        String password
 ) {
 }

@@ -2,11 +2,9 @@ package br.com.yann.forumHub.controller;
 
 
 import br.com.yann.forumHub.domain.topic.DataRegisterTopic;
-import br.com.yann.forumHub.domain.topic.TopicRepository;
 import br.com.yann.forumHub.service.RegisterTopicService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
