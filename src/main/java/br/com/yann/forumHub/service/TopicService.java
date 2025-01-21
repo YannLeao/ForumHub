@@ -58,4 +58,13 @@ public class TopicService {
 
         return new DataResponseTopic(topic);
     }
+
+    public void deleteTopic(Long id) {
+        var topicOptional = topicRepository.findById(id);
+        if (topicOptional.isEmpty()) {
+            throw new EntityNotFoundException("Topic not found");
+        }
+
+        topicRepository.deleteById(id);
+    }
 }
