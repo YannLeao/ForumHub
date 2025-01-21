@@ -78,5 +78,6 @@ public class Topic {
     }
 
     public void setCourse(Course course) {
+
     }
 }
