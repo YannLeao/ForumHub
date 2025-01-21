@@ -3,26 +3,13 @@ package br.com.yann.forumHub.domain.reponse;
 import br.com.yann.forumHub.domain.topic.Topic;
 import br.com.yann.forumHub.domain.user.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
+import java.time.Clock;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "responses")
 public class Response {
-
-    public Response() {}
-
-    public Response(Long id, Topic topic, User author, String message, LocalDateTime creationDate) {
-        this.id = id;
-        this.topic = topic;
-        this.author = author;
-        this.message = message;
-        this.creationDate = creationDate;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,6 +28,16 @@ public class Response {
 
     @Column(name = "creation_date", nullable = false)
     private LocalDateTime creationDate = LocalDateTime.now();
+
+    public Response() {}
+
+    public Response(Long id, Topic topic, User author, String message) {
+        this.id = id;
+        this.topic = topic;
+        this.author = author;
+        this.message = message;
+        creationDate = LocalDateTime.now(Clock.systemDefaultZone());
+    }
 
     public Long getId() {
         return id;
