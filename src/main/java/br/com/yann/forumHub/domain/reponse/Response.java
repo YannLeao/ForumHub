@@ -12,11 +12,17 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "responses")
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(of = "id")
 public class Response {
+
+    public Response() {}
+
+    public Response(Long id, Topic topic, User author, String message, LocalDateTime creationDate) {
+        this.id = id;
+        this.topic = topic;
+        this.author = author;
+        this.message = message;
+        this.creationDate = creationDate;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,4 +42,23 @@ public class Response {
     @Column(name = "creation_date", nullable = false)
     private LocalDateTime creationDate = LocalDateTime.now();
 
+    public Long getId() {
+        return id;
+    }
+
+    public Topic getTopic() {
+        return topic;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
 }
