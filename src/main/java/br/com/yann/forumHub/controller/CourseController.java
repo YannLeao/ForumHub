@@ -4,6 +4,7 @@ import br.com.yann.forumHub.domain.course.DataRegisterCourse;
 import br.com.yann.forumHub.domain.course.DataResponseCourse;
 import br.com.yann.forumHub.service.CourseService;
 import br.com.yann.forumHub.service.RegisterCourseService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/courses")
+@SecurityRequirement(name = "bearer-key")
 public class CourseController {
 
     private final RegisterCourseService registerService;

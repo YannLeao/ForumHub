@@ -4,6 +4,7 @@ package br.com.yann.forumHub.controller;
 import br.com.yann.forumHub.domain.reponse.DataRegisterResponse;
 import br.com.yann.forumHub.domain.reponse.DetailingResponse;
 import br.com.yann.forumHub.service.RegisterResponseService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping("responses")
+@SecurityRequirement(name = "bearer-key")
 public class ResponseController {
     private final RegisterResponseService registerService;
 

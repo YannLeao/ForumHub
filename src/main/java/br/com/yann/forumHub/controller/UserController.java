@@ -4,6 +4,7 @@ import br.com.yann.forumHub.domain.user.DataRegisterUser;
 import br.com.yann.forumHub.domain.user.DataResponseUser;
 import br.com.yann.forumHub.service.RegisterUserService;
 import br.com.yann.forumHub.service.UserService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("users")
+@SecurityRequirement(name = "bearer-key")
 public class UserController {
 
     private final RegisterUserService registerService;

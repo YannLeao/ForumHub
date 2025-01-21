@@ -35,6 +35,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.PUT, "/cursos/**").hasRole("ADMIN"))
                 .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.DELETE, "/cursos/**").hasRole("ADMIN"))
                 .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.GET, "/cursos/**").hasRole("USER"))
+                .authorizeHttpRequests(authorize -> authorize.requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll())
                 .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

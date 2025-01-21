@@ -7,6 +7,7 @@ import br.com.yann.forumHub.domain.topic.DataUpdateTopic;
 import br.com.yann.forumHub.domain.topic.TopicRepository;
 import br.com.yann.forumHub.service.RegisterTopicService;
 import br.com.yann.forumHub.service.TopicService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/topics")
+@SecurityRequirement(name = "bearer-key")
 public class TopicController {
 
     private final RegisterTopicService registerService;
