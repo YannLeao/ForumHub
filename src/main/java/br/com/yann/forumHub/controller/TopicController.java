@@ -3,6 +3,8 @@ package br.com.yann.forumHub.controller;
 
 import br.com.yann.forumHub.domain.topic.DataRegisterTopic;
 import br.com.yann.forumHub.domain.topic.DataResponseTopic;
+import br.com.yann.forumHub.domain.topic.Topic;
+import br.com.yann.forumHub.domain.topic.TopicRepository;
 import br.com.yann.forumHub.service.RegisterTopicService;
 import br.com.yann.forumHub.service.TopicService;
 import jakarta.transaction.Transactional;
@@ -19,10 +21,12 @@ public class TopicController {
 
     private final RegisterTopicService registerService;
     private final TopicService topicService;
+    private final TopicRepository repository;
 
-    public TopicController(RegisterTopicService registerService, TopicService topicService) {
+    public TopicController(RegisterTopicService registerService, TopicService topicService, TopicRepository repository) {
         this.registerService = registerService;
         this.topicService = topicService;
+        this.repository = repository;
     }
 
     @PostMapping
@@ -40,6 +44,12 @@ public class TopicController {
     public ResponseEntity<List<DataResponseTopic>> list(@RequestParam(defaultValue = "false") boolean limited) {
         var topics = topicService.listTopics(limited);
         return ResponseEntity.ok(topics);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DataResponseTopic> getTopicDetails(@PathVariable Long id) {
+        var topic = repository.findById(id).orElse(null);
+        return ResponseEntity.ok(new DataResponseTopic(topic));
     }
 
 }
