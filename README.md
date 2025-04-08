@@ -7,12 +7,14 @@
 
 Este é um projeto de uma API REST desenvolvida com Spring Boot, que oferece funcionalidades para gerenciar usuários, tópicos, respostas para esses tópicos e cursos, utilizando autenticação baseada em JWT.
 
-## Ferramentas Utilizadas
+## Ferramentas utilizadas
 
 <div align="left">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=spring,java,maven,mysql&perline=9" />
-  </a>
+  <img src="https://img.shields.io/badge/Java-B07219.svg?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java">
+  <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot">
+  <img src="https://img.shields.io/badge/Spring%20Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white" alt="Spring Security">
+  <img src="https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white" alt="Maven">
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
 </div>
 
 ## Funcionalidades
